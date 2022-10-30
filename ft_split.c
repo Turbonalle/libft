@@ -47,8 +47,7 @@ static char *strndup(const char *s, size_t n)
     size_t i;
     char *result;
 
-    result = (char *)malloc(sizeof(char) * (n + 1));
-    if (!result)
+    if (!(result = (char *)malloc(sizeof(char) * (n + 1))))
     {
         return (0);
     }
@@ -71,9 +70,8 @@ char **ft_split(const char *s, char c)
     char **result;
 
     words = ft_count(s, c);
-    result = (char *)malloc(sizeof(char *) * (words + 1));
 
-    if (!result || s == 0)
+    if (!(result = (char *)malloc(sizeof(char *) * (words + 1))) || s == 0)
     {
         return (0);
     }
@@ -86,8 +84,8 @@ char **ft_split(const char *s, char c)
             s++;
         }
         len = ft_wordlen(s, c);
-        result[i] = ft_strndup(s, len);
-        if (!result[i])
+        ;
+        if (!(result[i] = ft_strndup(s, len)))
         {
             free(result, i);
             return (0);
