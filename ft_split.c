@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 static size_t ft_count(const char *s, char c)
 {
     size_t i;
@@ -5,7 +9,7 @@ static size_t ft_count(const char *s, char c)
 
     i = 0;
     words = 0;
-    if (s == '0')
+    if (s == '\0')
     {
         return (0);
     }
@@ -42,7 +46,7 @@ static size_t ft_wordlen(const char *s, char c)
 }
 
 
-static char *strndup(const char *s, size_t n)
+static char *ft_strndup(const char *s, size_t n)
 {
     size_t i;
     char *result;
@@ -62,47 +66,52 @@ static char *strndup(const char *s, size_t n)
 }
 
 
-char **ft_split(const char *s, char c)
+int ft_free(char **s)
 {
-    size_t i;
-    size_t len;
-    size_t words;
-    char **result;
+    if (s)
+        return (1);
+    free(s);
+    return (0);
+}
 
-    words = ft_count(s, c);
 
-    if (!(result = (char *)malloc(sizeof(char *) * (words + 1))) || s == 0)
-    {
-        return (0);
-    }
+char	**ft_split(const char *s, char c)
+{
+	size_t	i;
+	size_t	len;
+	size_t	words;
+	char	**result;
 
-    i = 0;
-    while (i < words)
-    {
-        while (*s && *s == c)
-        {
-            s++;
-        }
-        len = ft_wordlen(s, c);
-        ;
-        if (!(result[i] = ft_strndup(s, len)))
-        {
-            free(result, i);
-            return (0);
-        }
-        s += len;
-        i++;
-    }
-    result[words] = '\0';
-    return (result);
+	words = ft_count(s, c);
+	result = (char **)malloc(sizeof(char *) * (words + 1));
+	if (!result)
+		return (NULL);
+	i = 0;
+	while (i < words)
+	{
+		while (*s && *s == c)
+			s++;
+		len = ft_wordlen(s, c);
+		result[i++] = ft_strndup(s, len);
+		if (!ft_free(result))
+			return (NULL);
+		s += len;
+	}
+	result[i] = 0;
+	return (result);
 }
 
 
 int main()
 {
-    char test[] = "Hello my friend!";
-    char **arr;
+	char *s = "Hello my friends! How are you doing today?";
+	char **arr = ft_split(s, ' ');
+	int i = 0;
 
-    
-    return (0);
+	while (arr[i])
+	{
+		printf("arr[%d] = %s\n", i, arr[i]);
+		i++;
+	}
+	return (0);
 }

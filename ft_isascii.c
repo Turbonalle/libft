@@ -1,24 +1,30 @@
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 
-int ft_isascii(int c)
+int ft_isascii(char c)
 {
-    return (0 <= c && c <= 127);
+    if (c >= 0 && c <= 127)
+    {
+        return (1);
+    }
+    return (0);
 }
 
 int main()
 {
-    int c = 'a';
-    int i = 7;
-    int x = ' ';
+    char c = ' ';
+    char d = 'z';
+    int x;
 
-    i++;
+    x = isascii(c);
+    printf("%d\n", x);
+    x = isascii(d);
+    printf("%d\n", x);
 
-    printf("ft_isascii(%d) = %d\n", c, ft_isascii(c));
-    printf("ft_isascii(%d) = %d\n", i, ft_isascii(i));
-    printf("ft_isascii(%d) = %d\n", x, ft_isascii(x));
-
-    printf("isascii(%d) = %d\n", c, isascii(c));
-    printf("isascii(%d) = %d\n", i, isascii(i));
-    printf("isascii(%d) = %d\n", x, isascii(x));
+    x = ft_isalpha(c);
+    printf("%d\n", x);
+    x = ft_isalpha(d);
+    printf("%d\n", x);
+    
+    return (0);
 }

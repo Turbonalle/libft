@@ -1,23 +1,23 @@
-#include <string.h>
 #include <stdio.h>
+#include <string.h>
 
-size_t ft_strlen(const char *s)
+size_t ft_strlen(const char *str)
 {
-    size_t i;
-
-    i = 0;
-    while (s[i])
+    size_t i = 0;
+    while (str[i])
     {
         i++;
     }
     return (i);
 }
 
-int main()
+int main(int ac, char **av)
 {
-    char *s = "Hello!";
-
-    printf("%s = %d bytes long\n", s, ft_strlen(s));
-    printf("%s = %d bytes long\n", s, strlen(s));
-
+    if (ac != 2)
+    {
+        return (0);
+    }
+    printf("%zu\n", ft_strlen(av[1]));
+    printf("%zu\n", strlen(av[1]));
+    return (0);
 }

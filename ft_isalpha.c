@@ -1,19 +1,33 @@
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 
-int ft_isalpha(int c)
+int ft_isalpha(unsigned char c)
 {
-    return (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z'));
+    if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+    {
+        return (1);
+    }
+    return (0);
 }
 
 int main()
 {
-    int c = 'a';
-    int i = 1;
+    char a = 'A';
+    char b = '3';
+    char c = ' ';
+    char d = 'z';
 
-    printf("ft_isalpha(c) = %d\n", ft_isalpha(c));
-    printf("ft_isalpha(i) = %d\n", ft_isalpha(i));
+    // char testarray = ('A', '3', )
 
-    printf("isalpha(c) = %d\n", isalpha(c));
-    printf("isalpha(i) = %d\n", isalpha(i));
+    printf("%d\n", isalpha(a));
+    printf("%d\n", isalpha(b));
+    printf("%d\n", isalpha(c));
+    printf("%d\n", isalpha(d));
+
+    printf("%d\n", ft_isalpha(a));
+    printf("%d\n", ft_isalpha(b));
+    printf("%d\n", ft_isalpha(c));
+    printf("%d\n", ft_isalpha(d));
+    
+    return (0);
 }

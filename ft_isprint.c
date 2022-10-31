@@ -1,24 +1,33 @@
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 
 int ft_isprint(int c)
 {
-    return (32 <= c && c <= 126);
+    if (c >= 32 && c <= 126)
+    {
+        return (1);
+    }
+    return (0);
 }
 
 int main()
 {
-    int c = 'a';
-    int i = 78;
-    int x = 'Z';
+    char a = 'A';
+    char b = '3';
+    char c = ' ';
+    char d = 'z';
 
-    i++;
+	printf("My function:\n");
+    printf("%d\n", isprint(a));
+    printf("%d\n", isprint(b));
+    printf("%d\n", isprint(c));
+    printf("%d\n", isprint(d));
+	printf("\nReal function:\n");
 
-    printf("ft_isprint(%d) = %d\n", c, ft_isprint(c));
-    printf("ft_isprint(%d) = %d\n", i, ft_isprint(i));
-    printf("ft_isprint(%d) = %d\n", x, ft_isprint(x));
-
-    printf("isprint(%d) = %d\n", c, isprint(c));
-    printf("isprint(%d) = %d\n", i, isprint(i));
-    printf("isprint(%d) = %d\n", x, isprint(x));
+    printf("%d\n", ft_isprint(a));
+    printf("%d\n", ft_isprint(b));
+    printf("%d\n", ft_isprint(c));
+    printf("%d\n", ft_isprint(d));
+    
+    return (0);
 }

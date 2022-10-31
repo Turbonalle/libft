@@ -1,24 +1,30 @@
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 
-int ft_isalnum(int c)
+int ft_isalpha(char c)
 {
-    return (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z') || ('1' <= c && c <= '9'));
+    if ((c >= 48 && c <= 57) || (c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+    {
+        return (1);
+    }
+    return (0);
 }
 
 int main()
 {
-    int c = 'a';
-    int i = 7;
-    int x = ' ';
+    char c = ' ';
+    char d = 'z';
+    int x;
 
-    i++;
+    x = isalpha(c);
+    printf("%d\n", x);
+    x = isalpha(d);
+    printf("%d\n", x);
 
-    printf("ft_isalnum(%d) = %d\n", c, ft_isalnum(c));
-    printf("ft_isalnum(%d) = %d\n", i, ft_isalnum(i));
-    printf("ft_isalnum(%d) = %d\n", x, ft_isalnum(x));
-
-    printf("isalnum(%d) = %d\n", c, isalnum(c));
-    printf("isalnum(%d) = %d\n", i, isalnum(i));
-    printf("isalnum(%d) = %d\n", x, isalnum(x));
+    x = ft_isalpha(c);
+    printf("%d\n", x);
+    x = ft_isalpha(d);
+    printf("%d\n", x);
+    
+    return (0);
 }
