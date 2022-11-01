@@ -17,9 +17,11 @@ int ft_strncmp(const char *s1, const char *s2, size_t n)
 		}
 		if (*a != *b)
 		{
-			return ()
+			return (*a - *b);
 		}
+		n--;
 	}
+	return (0);
 }
 
 int main()
