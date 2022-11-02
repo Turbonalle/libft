@@ -1,33 +1,32 @@
 #include <string.h>
 #include <stdio.h>
 
-size_t ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize)
+size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int i;
+	size_t i;
 
 	i = 0;
 	if (dstsize > 0)
 	{
-		while (src[i])
+		while (src[i] && i < dstsize - 1)
 		{
-			
+			dst[i] = src[i];
+			i++;
 		}
+		dst[i] = '\0';
 	}
-	while (i < dstsize - 1)
-	{
-		dst[i] = src[i];
+	while (src[i])
 		i++;
-	}
-	dst[i] = '\0';
+	return (i);
 }
 
 void test(int size)
 {
     char string[] = "Hello sir!";
-    char buffer[12];
+    char buffer[8];
     int result;
 
-    result = strlcpy(buffer,string,size);
+    result = ft_strlcpy(buffer,string,size);
 
     printf("Copied '%s' into '%s', length %d\n", string, buffer, result);
 }
