@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	ft_check_int_len(int n)
+static int	ft_check_int_len(int n)
 {
 	int	len;
 
@@ -20,6 +20,15 @@ int	ft_check_int_len(int n)
 	return (len);
 }
 
+static char *ft_int_min(int n)
+{
+	char	*str;
+	
+	str = (char *)malloc(sizeof(char) * 12);
+	str = "-2147483648";
+	return (str);
+}
+
 char	*ft_itoa(int n)
 {
 	char	*str;
@@ -27,7 +36,7 @@ char	*ft_itoa(int n)
 
 	if (n == -2147483648)
 	{
-		str = "-2147483648";
+		str = ft_int_min(n);
 		return (str);
 	}
 	len = ft_check_int_len(n);

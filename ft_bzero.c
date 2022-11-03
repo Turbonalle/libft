@@ -15,22 +15,18 @@ void *ft_memset(void *b, int c, size_t len)
     return (ptr);
 }
 
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-    size_t i;
-    char *p;
+	size_t	i;
+	char	*p;
 
-    i = 0;
-    p = (char *)s;
-    if (n != 0)
-    {
-        // while (i < n)
-        // {
-        //     p[i] = '\0';
-        //     i++;
-        // }
-        ft_memset(p, '\0', n);
-    }
+	i = 0;
+	p = (char *)s;
+	while (i < n)
+	{
+		p[i] = 0;
+		i++;
+	}
 }
 
 int main()

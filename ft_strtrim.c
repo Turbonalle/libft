@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int setmatch(char c, char *set)
 {
@@ -23,37 +24,23 @@ char *ft_strtrim(char const *s1, char const *set)
 	
 	ps1 = (char *)s1;
 	pset = (char *)set;
-	
 	while (setmatch(*ps1, pset))
-	{
 		ps1++;
-	}
-
 	stop = ps1;
-
 	while (*stop)
-	{
 		stop++;
-	}
-
 	stop--;
-
 	while (setmatch(*stop, pset))
-	{
 		stop--;
-	}
-
+	new = (char *)malloc(sizeof(char) * (stop - ps1 + 1));
 	int i = 0;
-
 	while (ps1 <= stop)
 	{
 		new[i] = *ps1;
 		i++;
 		ps1++;
 	}
-
 	new[i] = '\0';
-
 	return (new);
 }
 

@@ -4,16 +4,16 @@
 int ft_atoi(const char *str)
 {
     int sign = 1;
-    int result = 0;
+    size_t result = 0;
     if (!str)
-    {
-        return (NULL);
-    }
+        return (0);
     if (*str == '-')
     {
         sign *= -1;
         str++;
     }
+    else if (*str == '+')
+		str++;
     while (*str && *str >= '0' && *str <= '9')
     {
         result = result * 10 + *str - 48;
@@ -29,7 +29,7 @@ int main()
     const char *b = "--5";
     const char *c = "2147 345"; // INTMAX
     const char *d = "-2147   4"; // INTMIN
-    const char *e = "+-3648"; // OVER INTMAX
+    const char *e = "+3648"; // OVER INTMAX
     const char *f = "-+23649"; // OVER INTMAX
     const char *g = "9223372036854775807"; // OVER LONGLONGINTMAX
     const char *h = "876h78"; // OVER LONGLONGINTMAX

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *	ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	char *p1;
 	char *p2;
@@ -9,7 +9,8 @@ char *	ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 	p1 = (char *)haystack;
 	p2 = (char *)needle;
-	if (!needle)
+
+	if (!needle || !len)
 	{
 		return(p1);
 	}

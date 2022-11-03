@@ -31,14 +31,15 @@ size_t ft_strlen(const char *str)
     return (i);
 }
 
-size_t
-	ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	j;
 	size_t	dest_length;
 	size_t	src_length;
 
+	if (!size)
+		return (0);
 	src_length = ft_strlen(src);
 	dest_length = ft_strlen(dst);
 	j = dest_length;
