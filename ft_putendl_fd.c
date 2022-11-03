@@ -23,9 +23,12 @@ size_t ft_strlen(const char *str)
 
 void ft_putendl_fd(char *s, int fd)
 {
-	const char	c = '\n';
-	write(fd, s, ft_strlen(s));
-	write(fd, &c, 1);
+	if (s)
+	{
+		const char	c = '\n';
+		write(fd, s, ft_strlen(s));
+		write(fd, &c, 1);
+	}
 }
 
 int main()
