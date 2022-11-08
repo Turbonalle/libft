@@ -1,12 +1,12 @@
 NAME = libft.a
-SRC = ./sources/*.c
+SRC = *.c
 OBJECTS = *.o
-HEADERS = ./includes
+HEADERS = libft.h
 
 all: $(NAME)
 
 $(NAME):
-	gcc -Wall -Wextra -Werror -I $(HEADERS) -c $(SRC)
+	cc -Wall -Wextra -Werror -I $(HEADERS) -c $(SRC)
 	ar rc $(NAME) $(OBJECTS)
 	ranlib $(NAME)
 
