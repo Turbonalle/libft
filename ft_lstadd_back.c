@@ -6,7 +6,7 @@
 /*   By: jbagger <jbagger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:27:37 by jbagger           #+#    #+#             */
-/*   Updated: 2022/11/08 15:49:58 by jbagger          ###   ########.fr       */
+/*   Updated: 2022/11/09 16:44:00 by jbagger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*end;
 
-	if (lst)
+	if (lst && new)
 	{
 		if (*lst)
 		{
@@ -26,5 +26,4 @@ void ft_lstadd_back(t_list **lst, t_list *new)
 		else
 			*lst = new;
 	}
-	return (new);
 }

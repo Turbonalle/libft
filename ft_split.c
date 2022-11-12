@@ -6,7 +6,7 @@
 /*   By: jbagger <jbagger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 10:15:09 by jbagger           #+#    #+#             */
-/*   Updated: 2022/11/08 10:41:42 by jbagger          ###   ########.fr       */
+/*   Updated: 2022/11/12 17:46:36 by jbagger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,15 @@ static char	*ft_strndup(const char *s, size_t n)
 	return (result);
 }
 
-static int	ft_free(char **s)
+static int	ft_free(char **s, size_t i)
 {
-	if (s)
+	if (s[i])
 		return (1);
+	while (i > 0)
+	{
+		free(s[i]);
+		i--;
+	}
 	free(s);
 	return (0);
 }
@@ -88,7 +93,7 @@ char	**ft_split(const char *s, char c)
 			s++;
 		len = ft_wordlen(s, c);
 		result[i++] = ft_strndup(s, len);
-		if (!ft_free(result))
+		if (!ft_free(result, i))
 			return (NULL);
 		s += len;
 	}
