@@ -6,7 +6,7 @@
 /*   By: jbagger <jbagger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 11:50:12 by jbagger           #+#    #+#             */
-/*   Updated: 2022/10/31 15:49:57 by jbagger          ###   ########.fr       */
+/*   Updated: 2022/11/30 08:10:54 by jbagger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,11 @@ char	*ft_strrchr(const char *s, int c)
 	while (len >= 0)
 	{
 		if (*ptr == (unsigned char)c)
-		{
 			return (ptr);
-		}
 		ptr--;
 		len--;
 	}
 	if (c == 0)
-	{
 		return (ptr);
-	}
 	return (NULL);
 }
